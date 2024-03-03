@@ -1,5 +1,5 @@
 /*  eslint-disable react/prop-types */
-import "./taskCard.css"
+import "./TaskCard.css"
 
 const TaskCards = (props) => {
     //logic for Date Element
