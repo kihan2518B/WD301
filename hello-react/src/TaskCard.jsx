@@ -1,7 +1,7 @@
 /*  eslint-disable react/prop-types */
 import "./TaskCard.css"
 
-const TaskCards = (props) => {
+const TaskCard = (props) => {
     //logic for Date Element
     let Date = props.dueDate;
     const Assignee = props.assigneeName;
@@ -32,4 +32,4 @@ const TaskCards = (props) => {
 
 /* eslint-disable react/prop-types */
 
-export default TaskCards;
+export default TaskCard;

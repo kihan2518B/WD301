@@ -1,6 +1,6 @@
 // import { useState } from 'react'
 import './App.css';
-import TaskCards from './TaskCard'; // eslint-disable-line
+import TaskCard from './TaskCard'; // eslint-disable-line
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -18,8 +18,8 @@ function App() {
             <h1 className='font-bold text-3xl'>Pending</h1>
           </div>
           <div className='flex flex-col justify-center items-center gap-4 pb-4'>
-            <TaskCards title={"Build Website with static content"} completed={false} dueDate={"7th April"} assigneeName={"Rohit S"} />
-            <TaskCards title={"Add a blog"} completed={false} dueDate={"10th April"} assigneeName={"Mehul A"} />
+            <TaskCard title={"Build Website with static content"} completed={false} dueDate={"7th April"} assigneeName={"Rohit S"} />
+            <TaskCard title={"Add a blog"} completed={false} dueDate={"10th April"} assigneeName={"Mehul A"} />
           </div>
         </div>
 
@@ -28,8 +28,8 @@ function App() {
             <h1 className='font-bold text-3xl'>Done</h1>
           </div>
           <div className='flex flex-col pb-4 gap-4 justify-center items-center '>
-            <TaskCards title={"Design a mockup"} completed={true} dueDate={"20th April"} completedAtDate={"2th April"} assigneeName={"Rohit M"} />
-            <TaskCards title={"Get approval from principal"} completed={true} dueDate={"1th April"} completedAtDate={"31th March"} assigneeName={"Mohan M"} />
+            <TaskCard title={"Design a mockup"} completed={true} dueDate={"20th April"} completedAtDate={"2th April"} assigneeName={"Rohit M"} />
+            <TaskCard title={"Get approval from principal"} completed={true} dueDate={"1th April"} completedAtDate={"31th March"} assigneeName={"Mohan M"} />
           </div>
         </div>
       </div>
