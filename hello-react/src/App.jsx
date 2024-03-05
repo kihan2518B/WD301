@@ -15,7 +15,7 @@ function App() {
       <div className="flex ml-10 mt-16 h-[70vh] w-[90vw] justify-center gap-8">
         <div className='w-[40vw] h-fit flex flex-col border-4 rounded-3xl border-red-500 items-center gap-5'>
           <div className='w-full flex justify-center mt-3'>
-            <h1 className='font-bold text-3xl'>pending</h1>
+            <h1 className='font-bold text-3xl'>Pending</h1>
           </div>
           <div className='flex flex-col justify-center items-center gap-4 pb-4'>
             <TaskCards title={"Build Website with static content"} completed={false} dueDate={"7th April"} assigneeName={"Rohit S"} />
@@ -25,7 +25,7 @@ function App() {
 
         <div className='w-[40vw] h-fit flex flex-col border-4 rounded-3xl border-red-500 items-center gap-5'>
           <div className='w-full flex justify-center mt-3'>
-            <h1 className='font-bold text-3xl'>done</h1>
+            <h1 className='font-bold text-3xl'>Done</h1>
           </div>
           <div className='flex flex-col pb-4 gap-4 justify-center items-center '>
             <TaskCards title={"Design a mockup"} completed={true} dueDate={"20th April"} completedAtDate={"2th April"} assigneeName={"Rohit M"} />

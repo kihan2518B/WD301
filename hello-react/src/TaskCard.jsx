@@ -23,7 +23,7 @@ const TaskCards = (props) => {
                 <p>{DateElement}</p>
             </div>
             <div className="assignee">
-                <h4>Assignee:{Assignee}</h4>
+                <h4>Assignee name:{Assignee}</h4>
 
             </div>
         </div>
