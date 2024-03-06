@@ -20,7 +20,7 @@ const TaskCard: React.FC<TaskCardProps> = (props) => {
         DateElement = "completed on: " + props.completedAtDate;
     }
     else {
-        DateElement = "due date: " + Date;
+        DateElement = "due on: " + Date;
     }
 
     return (
@@ -32,7 +32,7 @@ const TaskCard: React.FC<TaskCardProps> = (props) => {
                 <p>{DateElement}</p>
             </div>
             <div className="assignee">
-                <h4>Assignee name:{Assignee}</h4>
+                <h4>Assignee:{Assignee}</h4>
 
             </div>
         </div>

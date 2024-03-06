@@ -20,7 +20,7 @@ const App: React.FC = () => {
           </div>
           <div className='flex flex-col justify-center items-center gap-4 pb-4'>
             <TaskCard title={"Build Website with static content"} completed={false} dueDate={"7th April"} assigneeName={"Rohit S"} />
-            <TaskCard title={"Add a blog"} completed={false} dueDate={"10th April"} assigneeName={"Mehul A"} />
+            <TaskCard title={"Add a blog"} completed={false} dueDate={"10th April"} assigneeName={"viraj A"} />
           </div>
         </div>
 
