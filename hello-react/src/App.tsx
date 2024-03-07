@@ -19,8 +19,8 @@ const App: React.FC = () => {
             <h1 className='font-bold text-3xl'>Pending</h1>
           </div>
           <div className='flex flex-col justify-center items-center gap-4 pb-4'>
-            <TaskCard title={"Build Website with static content"} completed={false} dueDate={"7th April"} assigneeName={"Rohit S"} />
-            <TaskCard title={"Add a blog"} completed={false} dueDate={"10th April"} assigneeName={"viraj A"} />
+            <TaskCard title={"Build Website with static content"} dueDate={"7th April"} assigneeName={"Rohit S"} />
+            <TaskCard title={"Add a blog"} dueDate={"10th April"} assigneeName={"viraj A"} />
           </div>
         </div>
 
@@ -29,8 +29,8 @@ const App: React.FC = () => {
             <h1 className='font-bold text-3xl'>Done</h1>
           </div>
           <div className='flex flex-col pb-4 gap-4 justify-center items-center '>
-            <TaskCard title={"Design a mockup"} completed={true} dueDate={"20th April"} completedAtDate={"2th April"} assigneeName={"Rohit M"} />
-            <TaskCard title={"Get approval from principal"} completed={true} dueDate={"1th April"} completedAtDate={"31th March"} assigneeName={"Mohan M"} />
+            <TaskCard title={"Design a mockup"} completedAtDate={"2th April"} assigneeName={"Rohit M"} />
+            <TaskCard title={"Get approval from principal"} completedAtDate={"31th March"} assigneeName={"Mohan M"} />
           </div>
         </div>
       </div>
