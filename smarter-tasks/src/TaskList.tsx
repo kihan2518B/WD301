@@ -1,38 +1,25 @@
 import React from 'react'
 import Task from './Task'
+import { TaskItems } from './types'
 
 interface Props {
+    tasks: TaskItems[]
+}
 
-}
-interface TaskItems {
-    title: string
-}
-interface State {
-    Tasks: TaskItems[]
-}
+interface State { }
 
 class TaskList extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props)
         this.state = {
-            Tasks: [],
+            tasks: [],
         };
-    }
-
-    componentDidMount(): void {
-        const Tasks = [
-            { title: "Buy Groceries" },
-            { title: "Pay rent" },
-            { title: "Trade in market" },
-            { title: "Go to temple" }
-        ]
-        this.setState((state, props) => ({ Tasks })) //this is second syntax of setstate method
     }
 
     render() {
         return (
             <div>
-                {this.state.Tasks.map((task, index) => (
+                {this.props.tasks.map((task, index) => (
                     <Task key={index} title={task.title} />
                 ))}
             </div>
