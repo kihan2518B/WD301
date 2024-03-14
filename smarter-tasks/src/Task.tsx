@@ -1,19 +1,21 @@
 import React from "react";
 
 interface TaskProps {
-    title: string
+    title: string,
+    discription: string,
+    dueDate: string
 }
 class Task extends React.Component<TaskProps> {
 
     render() {
         return (
-            <div className="p-10 m-5 rounded-lg shadow-xl border border-gray-100">
+            <div className="TaskItem p-10 m-5 rounded-lg shadow-xl border border-gray-100">
                 <h2 className="text-base font-bold my-1">{this.props.title}</h2>
                 <p className="text-sm text-slate-500">
-                    Due Date:
+                    Due Date: {this.props.dueDate}
                 </p>
                 <p className="text-sm text-slate-500">
-                    Description:
+                    Description: {this.props.discription}
                 </p>
             </div>
         )

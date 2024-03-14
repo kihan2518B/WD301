@@ -20,7 +20,7 @@ class TaskList extends React.Component<Props, State> {
         return (
             <div>
                 {this.props.tasks.map((task, index) => (
-                    <Task key={index} title={task.title} />
+                    <Task key={index} title={task.title} dueDate={task.dueDate} discription={task.description} />
                 ))}
             </div>
         )

@@ -37,12 +37,14 @@ class TaskApp extends React.Component<TaskAppProps, TaskAppState> {
                     Graduation Final Year Project (Revamp college website)
                 </h1>
                 <div className="grid grid-cols-2 gap-4">
-                    <div className="border border-slate-200 rounded-xl p-4">
-                        <h1 className="text-slate-500 text-xl font-bold text-center mb-2">
+                    <div className="flex flex-col justify-center items-center border border-slate-200 rounded-xl p-4 shadow-xl">
+                        <h1 className="text-red-400 text-xl font-bold text-center mb-2">
                             Pending
                         </h1>
                         <TaskList tasks={this.state.tasks} />
-                        <TaskForm addTask={this.addTask} />
+                        <div className="">
+                            <TaskForm addTask={this.addTask} />
+                        </div>
                     </div>
                 </div>
             </div>
