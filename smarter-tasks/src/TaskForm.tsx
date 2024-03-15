@@ -4,71 +4,116 @@ import { TaskItems } from "./types";
 interface TaskFormProps {
     addTask: (task: TaskItems) => void;
 }
-interface TaskFormState {
-    title: string,
-    dueDate: string,
-    description: string
-}
+// interface TaskFormState {
+//     title: string,
+//     dueDate: string,
+//     description: string
+// }
 
-class TaskForm extends React.Component<TaskFormProps, TaskFormState>{
+// Creating New component
+const TaskForm = (props: TaskFormProps) => {
+    const [formState, setFormState] = React.useState({
+        title: '',
+        dueDate: '',
+        description: ''
+    })
+    // this is different way to use state variables
+    // const [title, setTitle] = React.useState("");
+    // const [description, setDescription] = React.useState("");
+    // const [dueDate, setDueDate] = React.useState("");
 
-    constructor(props: TaskFormProps) {
-        super(props);
-        this.state = {
-            title: "",
-            dueDate: "",
-            description: ""
-        }
-    }
-    AddTask: React.FormEventHandler<HTMLFormElement> = (event) => {
+    const AddTask: React.FormEventHandler<HTMLFormElement> = (event) => {
         event.preventDefault()
-        console.log(`Submitted the Form! ${this.state.title}`)
-        const newTask = {
-            title: this.state.title,
-            dueDate: this.state.dueDate,
-            description: this.state.description
-        };
-        this.props.addTask(newTask)
-        this.setState({
+        console.log(`Submitted the Form!`)
+        props.addTask(formState)
+        setFormState({
             title: "",
             dueDate: "",
             description: ""
         });
     }
-    titleChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
-        console.log(event.target.value)
-        this.setState({
-            title: event.target.value,
-        })
-    };
-    dueDateChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
-        console.log(event.target.value)
-        this.setState({
-            dueDate: event.target.value
-        })
-    };
-    descriptionChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
-        console.log(event.target.value)
-        this.setState({
-            description: event.target.value
-        })
-    };
 
-
-
-    render() {
-        return (
-            <div>
-                <form className="flex flex-col gap-2 justify-center items-center border shadow-sm border-black w-[30vw] rounded-sm " onSubmit={this.AddTask}>
-                    <h1 className="mt-2">Add Task</h1>
-                    <input type="text" className="text-slate-500 border-2 rounded-sm border-gray-900 bg-gray-100 w-[25vw]" id="todoTitle" placeholder="Enter Something" value={this.state.title} onChange={this.titleChange} required />
-                    <input type="date" id="todoDueDate" className="text-slate-500 border-2 rounded-sm border-gray-900 bg-gray-100 w-[25vw]" value={this.state.dueDate} onChange={this.dueDateChange} required />
-                    <input type="text" id="todoDescription" className="text-slate-500 border-2 rounded-sm border-gray-900 bg-gray-100 w-[25vw]" placeholder="Enter Discription" value={this.state.description} onChange={this.descriptionChange} />
-                    <button type="submit" className="bg-blue-300 w-20 rounded-sm mb-2" id="addTaskButton">Add Task</button>
-                </form>
-            </div>
-        )
-    }
+    const titleChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
+        console.log(event.target.value)
+        setFormState({ ...formState, title: event.target.value })
+    };
+    const dueDateChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
+        console.log(event.target.value)
+        setFormState({ ...formState, dueDate: event.target.value })
+    };
+    const descriptionChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
+        console.log(event.target.value)
+        setFormState({ ...formState, description: event.target.value })
+    };
+    return (
+        <div>
+            <form onSubmit={AddTask}>
+                <div className="grid md:grid-cols-4 md:gap-3">
+                    <div className="relative z-0 w-full mb-6 group">
+                        <input
+                            id="todoTitle"
+                            name="todoTitle"
+                            type="text"
+                            value={formState.title}
+                            onChange={titleChange}
+                            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                            placeholder=" "
+                        />
+                        <label
+                            htmlFor="todoTitle"
+                            className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                        >
+                            Todo Title
+                        </label>
+                    </div>
+                    <div className="relative z-0 w-full mb-6 group">
+                        <input
+                            id="todoDescription"
+                            name="todoDescription"
+                            type="text"
+                            value={formState.description}
+                            onChange={descriptionChange}
+                            placeholder=" "
+                            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                        />
+                        <label
+                            htmlFor="todoDescription"
+                            className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                        >
+                            Description
+                        </label>
+                    </div>
+                    <div className="relative z-0 w-full mb-6 group">
+                        <input
+                            id="todoDueDate"
+                            name="todoDueDate"
+                            type="date"
+                            value={formState.dueDate}
+                            onChange={dueDateChange}
+                            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                            placeholder=" "
+                            required
+                        />
+                        {/* <label
+                            htmlFor="todoDueDate"
+                            className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                        >
+                            Due Date
+                        </label> */}
+                    </div>
+                    <div className="relative z-0 w-full mb-6 group">
+                        <button
+                            type="submit"
+                            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-4 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                        >
+                            Add item
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    )
 }
+
 
 export default TaskForm
