@@ -1,7 +1,8 @@
-import React from "react";
+// import React, { useEffect } from "react";
 import { TaskItems } from './types';
 import TaskForm from "./TaskForm";
 import TaskList from "./TaskList";
+import { useLocalStorage } from "./hooks/useLocalStorage";
 
 interface TaskAppState {
     tasks: TaskItems[]
@@ -10,14 +11,13 @@ interface TaskAppState {
 
 const TaskApp = () => {
 
-    const [taskAppState, setTaskAppState] = React.useState<TaskAppState>({
+    const [taskAppState, setTaskAppState] = useLocalStorage<TaskAppState>("tasks", {
         tasks: []
     });
 
     const addTask = (task: TaskItems) => {
         setTaskAppState({ tasks: [...taskAppState.tasks, task] })
     };
-
 
     return (
         <div className="container py-10 max-w-4xl mx-auto">

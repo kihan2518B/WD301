@@ -34,15 +34,15 @@ const TaskForm = (props: TaskFormProps) => {
     }
 
     const titleChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
-        console.log(event.target.value)
+        // console.log(event.target.value)
         setFormState({ ...formState, title: event.target.value })
     };
     const dueDateChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
-        console.log(event.target.value)
+        // console.log(event.target.value)
         setFormState({ ...formState, dueDate: event.target.value })
     };
     const descriptionChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
-        console.log(event.target.value)
+        // console.log(event.target.value)
         setFormState({ ...formState, description: event.target.value })
     };
     return (
@@ -102,7 +102,7 @@ const TaskForm = (props: TaskFormProps) => {
                         </label> */}
                     </div>
                     <div className="relative z-0 w-full mb-6 group">
-                        <button
+                        <button id="addTaskButton"
                             type="submit"
                             className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-4 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                         >
