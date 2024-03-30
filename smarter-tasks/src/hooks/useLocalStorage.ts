@@ -16,8 +16,6 @@ const useLocalStorage = <T>(key: string, defaultValue: T): [T, React.Dispatch<Re
     useEffect(() => {
         localStorage.setItem(key, JSON.stringify(value));
     }, [key, value])
-    console.log(value)
-
     return [value, setValue]
 }
 

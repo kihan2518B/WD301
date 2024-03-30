@@ -19,6 +19,12 @@ const TaskApp = () => {
         setTaskAppState({ tasks: [...taskAppState.tasks, task] })
     };
 
+    const removeTask = (index: number) => {
+        const updatedTasks = [...taskAppState.tasks]
+        updatedTasks.splice(index, 1);
+        setTaskAppState({ tasks: updatedTasks })
+    }
+
     return (
         <div className="container py-10 max-w-4xl mx-auto">
             <h1 className="text-3xl mb-2 font-bold text-slate-700">
@@ -33,7 +39,7 @@ const TaskApp = () => {
                     <h1 className="text-red-400 text-xl font-bold text-center mb-2">
                         Pending
                     </h1>
-                    <TaskList tasks={taskAppState.tasks} />
+                    <TaskList tasks={taskAppState.tasks} onDelete={removeTask} />
                     <div className="">
                         <TaskForm addTask={addTask} />
                     </div>
