@@ -1,6 +1,6 @@
 
 interface TaskProps {
-    // key: number,
+    id: string,
     title: string,
     discription: string,
     dueDate: string
@@ -12,7 +12,9 @@ const Task = (props: TaskProps) => {
 
     return (
         < div className="TaskItem p-10 m-5 rounded-lg shadow-xl border border-gray-100" >
-            <h2 className="text-base font-bold my-1">{props.title}</h2>
+            <a href={`tasks/${props.id || ""}`}>
+                <h2 className="text-base font-bold my-1">{props.title}</h2>
+            </a>
             <p className="text-sm text-slate-500">
                 Due Date: {props.dueDate}
             </p>

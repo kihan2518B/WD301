@@ -11,8 +11,12 @@ interface TaskFormProps {
 // }
 
 // Creating New component
+const Tasks = localStorage.getItem("tasks")
+console.log(Tasks)
+
 const TaskForm = (props: TaskFormProps) => {
     const [formState, setFormState] = React.useState({
+        id: String(Tasks?.length),
         title: '',
         dueDate: '',
         description: ''
@@ -27,10 +31,12 @@ const TaskForm = (props: TaskFormProps) => {
         console.log(`Submitted the Form!`)
         props.addTask(formState)
         setFormState({
+            id: "",
             title: "",
             dueDate: "",
             description: ""
         });
+        console.log(setFormState)
     }
 
     const titleChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
@@ -45,6 +51,8 @@ const TaskForm = (props: TaskFormProps) => {
         // console.log(event.target.value)
         setFormState({ ...formState, description: event.target.value })
     };
+
+
     return (
         <div>
             <form onSubmit={AddTask}>
