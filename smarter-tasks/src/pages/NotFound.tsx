@@ -1,7 +1,7 @@
 // import React from 'react';
 import './styles.css';
 
-const NotFound = () => {
+const Notfound = () => {
   return (
     <div className='bg-gray-300 flex justify-center items-center w-full h-[100vh]'>
       <div className="">
@@ -31,4 +31,4 @@ const NotFound = () => {
   )
 }
 
-export default NotFound
+export default Notfound
