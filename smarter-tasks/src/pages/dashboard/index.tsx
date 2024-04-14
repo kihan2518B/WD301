@@ -9,7 +9,8 @@ const Dashboard: React.FC = () => {
         Navigate('/signin')
         console.log("logout succesfull")
     }
-    const userData = JSON.parse(localStorage.getItem('userData'));
+    const userData = JSON.parse(localStorage.getItem('userData') || '{}');
+    console.log("userData", userData)
 
     return (
         <div className="h-full w-full bg-gray-100">
