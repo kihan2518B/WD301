@@ -3,7 +3,7 @@ import { createBrowserRouter, Navigate } from "react-router-dom";
 import Signin from "../pages/signin"
 import Signup from "../pages/signup"
 import AccountLayout from "../layouts/account";
-import ProtectedRoute from "../ProtectedRoute";
+import ProtectedRoute from "./ProtectedRoutes";
 import Projects from "../pages/projects/index.tsx";
 import Members from "../pages/members/index.tsx";
 import Logout from "../pages/logout";
