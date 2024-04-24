@@ -4,8 +4,8 @@ import Signin from "../pages/signin"
 import Signup from "../pages/signup"
 import AccountLayout from "../layouts/account";
 import ProtectedRoute from "../ProtectedRoute";
-import Projects from "../pages/projects";
-import Members from "../pages/members";
+import Projects from "../pages/projects/index.tsx";
+import Members from "../pages/members/index.tsx";
 import Logout from "../pages/logout";
 
 const router = createBrowserRouter([
