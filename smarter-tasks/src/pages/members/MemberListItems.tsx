@@ -35,8 +35,9 @@ export default function MemberListItems() {
     // individual Members card.
     return (
         <>
-            {Members.map((Member: any) => (
-                <div key={Member.id} className="member block p-6 w-fit bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+            {Members.map((Member: any, index: number) => (
+                <div key={Member.id ?? index} className="member block p-6 w-fit bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                    {Member.id ?? index}
                     <h5 className="mb-2 text-xl font-medium tracking-tight text-gray-900 dark:text-white">Name: {Member.name}</h5>
                     <h5 className="mb-2 text-xl font-medium tracking-tight text-gray-900 dark:text-white">Email: {Member.email}</h5>
                     <button onClick={() => handleDeleteMember(Member.id)} className="mt-2 bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded">Delete</button>

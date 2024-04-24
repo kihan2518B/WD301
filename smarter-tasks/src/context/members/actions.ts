@@ -28,6 +28,7 @@ export const addMember = async (dispatch: any, args: any) => {
       // Next, I'll pass the `args` here
       body: JSON.stringify(args),
     });
+    console.log(response)
     if (!response.ok) {
       throw new Error('Failed to create project');
     }
