@@ -3,7 +3,7 @@ import { API_ENDPOINT } from '../../config/constants';
 import { useNavigate } from 'react-router-dom';
 
 const SigninForm: React.FC = () => {
-    const Navigate = useNavigate();
+    const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -25,7 +25,7 @@ const SigninForm: React.FC = () => {
             localStorage.setItem('userData', JSON.stringify(data.user))
             console.log("Sign Succesfull");
             //After SigninNavigate to dashboard
-            Navigate('/dashboard')
+            navigate('/account')
         } catch (e) {
             console.log(e);
         }
