@@ -7,11 +7,11 @@ export default function ProjectListItems() {
     // I'll define a new constant called `state`, to call the useProjectsState() hook, 
     // and get access to projects state.
     const state: any = useProjectsState();
+    console.log(state);
 
     // Next, I'll destructure the state object to gain access to projects, 
     // isLoading, isError and errorMessage property.
     const { projects, isLoading, isError, errorMessage } = state
-    console.log(projects);
 
     // If `isLoading` is true, and there are no projects, in that case, 
     // I'll show a loading text
