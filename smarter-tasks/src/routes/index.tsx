@@ -7,8 +7,13 @@ import ProtectedRoute from "../ProtectedRoute";
 import Projects from "../pages/projects/index.tsx";
 import Members from "../pages/members/index.tsx";
 import Logout from "../pages/logout";
+import Notfound from "../pages/Notfound.tsx";
 
 const router = createBrowserRouter([
+    {
+        path: "*",
+        element: <Notfound />
+    },
     {
         path: "/",
         element: <Signin />

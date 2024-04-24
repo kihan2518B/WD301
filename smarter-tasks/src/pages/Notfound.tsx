@@ -6,7 +6,7 @@ const Notfound = () => {
     <div className='bg-gray-300 flex justify-center items-center w-full h-[100vh]'>
       <div className="">
         <h1 className='text-red-500 text-9xl'>404 Not Found :(</h1>
-        <a href="/home">
+        <a href="/">
           <button id='backToHomeButton' className="cssbuttons-io-button">
             <div className="icon">
               <svg
