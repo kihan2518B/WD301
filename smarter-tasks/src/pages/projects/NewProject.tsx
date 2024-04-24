@@ -2,7 +2,7 @@
 
 import { Dialog, Transition } from '@headlessui/react';
 import { useForm, SubmitHandler } from "react-hook-form";
-import { API_ENDPOINT } from '../../config/constants';
+// import { API_ENDPOINT } from '../../config/constants';
 
 import { addProject } from '../../context/projects/actions';
 import { useProjectsDispatch } from "../../context/projects/context";
