@@ -13,12 +13,13 @@ type Inputs = {
 
 import { Fragment, useState } from 'react'
 const NewProject = () => {
-    const token = localStorage.getItem("authToken")
+    // const token = localStorage.getItem("authToken")
     const { register, handleSubmit, formState: { errors } } = useForm<Inputs>();
     // Then we will use useState hook to handle local state for dialog component
 
-    let [isOpen, setIsOpen] = useState(false)
+    const [isOpen, setIsOpen] = useState(false)
     const [error, setError] = useState(null)
+    console.log(error)
     // const [name, setName] = useState('');
 
     // Then we add the openModal function. 

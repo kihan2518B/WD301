@@ -2,7 +2,7 @@
 
 import { Dialog, Transition } from '@headlessui/react';
 import { useForm, SubmitHandler } from "react-hook-form";
-import { API_ENDPOINT } from '../../config/constants';
+// import { API_ENDPOINT } from '../../config/constants';
 
 import { addMember } from '../../context/members/actions';
 import { useMembersDispatch } from "../../context/members/context";
@@ -20,7 +20,8 @@ const NewMember = () => {
     // Then we will use useState hook to handle local state for dialog component
 
     const [isOpen, setIsOpen] = useState(false)
-    const [error, setError] = useState(null)
+    const [error, setError] = useState(null);
+    console.log(error)
     // const [name, setName] = useState('');
 
     // Then we add the openModal function. 

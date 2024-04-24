@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { API_ENDPOINT } from '../../config/constants';
 import { useNavigate } from 'react-router-dom';
 import { useForm, SubmitHandler } from "react-hook-form";
@@ -13,6 +13,7 @@ type Inputs = {
 
 const SignupForm: React.FC = () => {
     const { register, handleSubmit, formState: { errors } } = useForm<Inputs>();
+    console.log(errors)
     const navigate = useNavigate()
 
     const onSubmit: SubmitHandler<Inputs> = async (data) => {
