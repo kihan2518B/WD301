@@ -33,6 +33,7 @@ export const addMember = async (dispatch: any, args: any) => {
       throw new Error('Failed to create project');
     }
     const data = await response.json();
+    console.log("data", data)
     if (data.errors && data.errors.length > 0) {
       return { ok: false, error: data.errors[0].message }
     }
@@ -40,7 +41,7 @@ export const addMember = async (dispatch: any, args: any) => {
     // And if everything goes well with the API call, we will dispatch an action, 
     // with `type` set to `ADD_PROJECT_SUCCESS` and in `payload` we will send the 
     // new project `data`.
-    dispatch({ type: 'ADD_Members_SUCCESS', payload: data });
+    dispatch({ type: 'ADD_Members_SUCCESS', payload: data.user });
 
     // Next, I'll return a status called "ok", with value `true`
     // as everything went well.

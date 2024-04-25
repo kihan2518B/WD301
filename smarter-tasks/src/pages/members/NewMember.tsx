@@ -189,7 +189,7 @@ const NewMember = () => {
 
         // Then depending on response, I'll either close the modal...
         if (response.ok) {
-            window.location.reload();
+            // window.location.reload();
             setIsOpen(false)
         } else {
 
