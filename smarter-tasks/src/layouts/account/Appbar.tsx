@@ -5,14 +5,17 @@ import Logo from "../../assets/logo.png"
 import { Link, useLocation } from "react-router-dom"
 import { ThemeContext } from "../../context/theme";
 
+
 const userNavigation = [
     { name: 'Profile', href: '#' },
     { name: 'Sign out', href: '/logout' },
 ]
 
+
 const classNames = (...classes: string[]): string => classes.filter(Boolean).join(' ');
 
 const Appbar = () => {
+    // const { Currenttheme } = useContext(ThemeContext);
     const { theme, setTheme } = useContext(ThemeContext)
     const [enabled, setEnabled] = useState(theme === "dark")
     const { pathname } = useLocation()
@@ -77,7 +80,7 @@ const Appbar = () => {
                                     checked={enabled}
                                     onChange={toggleTheme}
                                     className={`${enabled ? 'bg-slate-400' : 'bg-slate-700'}
-          relative inline-flex h-[24px] w-[100px] shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75`}
+          relative inline-flex h-[24px] w-[60px] shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75`}
                                 >
                                     <span
                                         aria-hidden="true"
@@ -87,8 +90,8 @@ const Appbar = () => {
                                 </Switch>
                                 <Menu as="div" className="relative ml-3">
                                     <div>
-                                        <Menu.Button className="rounded-full bg-white p-1 text-gray-400 hover:text-blue-600">
-                                            <UserCircleIcon className="h-6 w-6" aria-hidden="true" />
+                                        <Menu.Button className={`rounded-full ${theme === "dark" ? 'bg-gray-900 p-1 text-white' : 'bg-white p-1 text-gray-900'} `}>
+                                            <UserCircleIcon className={`h-6 w-6`} aria-hidden="true" />
                                         </Menu.Button>
                                     </div>
                                     <Transition

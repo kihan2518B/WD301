@@ -8,6 +8,10 @@ import Projects from "../pages/projects/index.tsx";
 import Members from "../pages/members/index.tsx";
 import Logout from "../pages/logout";
 import Notfound from "../pages/Notfound.tsx";
+import NewTask from "../pages/tasks/NewTask.tsx";
+import ProjectContainer from "../pages/projects/ProjectContainer.tsx";
+import ProjectDetails from "../pages/project_details";
+import TaskDetailsContainer from "../pages/tasks/TaskDetailsContainer";
 
 const router = createBrowserRouter([
     {
@@ -37,7 +41,28 @@ const router = createBrowserRouter([
             { index: true, element: <Navigate to="/account/projects" replace /> },
             {
                 path: "projects",
-                element: (<Projects />)
+                element: <ProjectContainer />,
+                children: [
+                    { index: true, element: <Projects /> },
+                    {
+                        path: ":projectID",
+                        element: <ProjectDetails />,
+                        children: [
+                            { index: true, element: <></> },
+                            {
+                                path: "tasks",
+                                children: [
+                                    { index: true, element: <Navigate to="../" replace /> },
+                                    { path: "new", element: <NewTask /> },
+                                    {
+                                        path: ":taskID",
+                                        children: [{ index: true, element: <TaskDetailsContainer/> }],
+                                    },
+                                ],
+                            }
+                        ]
+                    }
+                ]
             },
             {
                 path: "members",
