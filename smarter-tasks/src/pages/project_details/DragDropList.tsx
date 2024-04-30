@@ -55,7 +55,7 @@ const DragDropList = (props: {
     const startTaskIDs = Array.from(start.taskIDs);
     // Remove the item from `startTaskIDs`
     const updatedItems = startTaskIDs.splice(source.index, 1);
-    console.log(updatedItems)
+    // console.log(updatedItems)
     const newStart = {
       ...start,
       taskIDs: startTaskIDs,

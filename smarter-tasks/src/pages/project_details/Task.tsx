@@ -6,28 +6,33 @@ import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useTasksDispatch } from "../../context/task/context";
 import { deleteTask } from "../../context/task/actions";
+import { ThemeContext } from "../../context/theme";
 
 const Task = forwardRef<
   HTMLDivElement,
   React.PropsWithChildren<{ task: TaskDetails }>
 >((props, ref) => {
+  const { theme } = useContext(ThemeContext)
   const taskDispatch = useTasksDispatch();
   const { projectID } = useParams();
   const { task } = props;
   return (
     <div ref={ref} {...props} className="m-2 flex">
       <Link
-        className="TaskItem w-full shadow-md border border-slate-100 bg-white"
+        className={`TaskItem w-full shadow-md border border-slate-100 ${theme === "dark" ? "bg-gray-900" : "bg-white"} `}
         to={`tasks/${task.id}`}
       >
         <div className="sm:ml-4 sm:flex sm:w-full sm:justify-between">
           <div>
             <h2 className="text-base font-bold my-1">{task.title}</h2>
-            <p className="text-sm text-slate-500">
+            <p className={`text-sm  ${theme === 'dark' ? 'text-gray-300' : 'text-slate-500'}`}>
               {new Date(task.dueDate).toDateString()}
             </p>
-            <p className="text-sm text-slate-500">
+            <p className={`text-sm  ${theme === 'dark' ? 'text-gray-300' : 'text-slate-500'}`}>
               Description: {task.description}
+            </p>
+            <p className={`text-sm  ${theme === 'dark' ? 'text-gray-300' : 'text-slate-500'}`}>
+              Assignee: {task.assignedUserName ?? "-"}
             </p>
           </div>
           <button

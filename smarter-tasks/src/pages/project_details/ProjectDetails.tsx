@@ -17,18 +17,18 @@ const ProjectDetails = () => {
 
     useEffect(() => {
         if (projectID) refreshTasks(taskDispatch, projectID);
-      }, [projectID, taskDispatch]);
-      const selectedProject = projectState?.projects.filter(
+    }, [projectID, taskDispatch]);
+    const selectedProject = projectState?.projects.filter(
         (project) => `${project.id}` === projectID
-      )?.[0];
-    
-      if (!selectedProject) {
+    )?.[0];
+
+    if (!selectedProject) {
         return <>No such Project!</>;
-      }
-    
-      if (tasksState.isLoading) {
+    }
+
+    if (tasksState.isLoading) {
         return <>Loading...</>;
-      }
+    }
     return (
         <>
             <div className="flex justify-between">
