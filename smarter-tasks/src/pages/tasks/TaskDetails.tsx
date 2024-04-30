@@ -1,11 +1,14 @@
 import { Dialog, Transition, Listbox } from "@headlessui/react";
-import { Fragment, useState } from "react";
+import { Fragment, useState, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useTasksDispatch, useTasksState } from "../../context/task/context";
 import CheckIcon from "@heroicons/react/24/outline/CheckIcon";
 import { updateTask } from "../../context/task/actions";
 import { useMembersState } from "../../context/members/context";
+import { ThemeContext } from "../../context/theme";
+
+import CommentsList from "../comment/CommentsList";
 
 import { useProjectsState } from "../../context/projects/context";
 import { TaskDetailsPayload } from "../../context/task/types";
@@ -25,6 +28,7 @@ const formatDateForPicker = (isoDate: string) => {
 };
 
 const TaskDetails = () => {
+    const { theme } = useContext(ThemeContext)
     const memberState = useMembersState()
     const [isOpen, setIsOpen] = useState(true);
 
@@ -109,10 +113,10 @@ const TaskDetails = () => {
                                 leaveFrom="opacity-100 scale-100"
                                 leaveTo="opacity-0 scale-95"
                             >
-                                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                                <Dialog.Panel className={` ${theme == "dark" ? 'text-gray-300 dark' : 'text-black'} w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all`}>
                                     <Dialog.Title
                                         as="h3"
-                                        className="text-lg font-medium leading-6 text-gray-900"
+                                        className="text-lg font-medium leading-6 "
                                     >
                                         Task Details
                                     </Dialog.Title>
@@ -147,7 +151,7 @@ const TaskDetails = () => {
                                                 value={selectedPerson}
                                                 onChange={setSelectedPerson}
                                             >
-                                                <Listbox.Button className="w-full border rounded-md py-2 px-3 my-2 text-gray-700 text-base text-left">
+                                                <Listbox.Button className="w-full border rounded-md py-2 px-3 my-2  text-base text-left">
                                                     {selectedPerson}
                                                 </Listbox.Button>
                                                 <Listbox.Options className="absolute overflow-y-scroll h-14 mt-1 max-h-60 rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
@@ -199,6 +203,9 @@ const TaskDetails = () => {
                                                 Cancel
                                             </button>
                                         </form>
+                                        <hr className="mt-2" />
+                                        <h3 className={`${theme == "dark" ? 'text-gray-300' : 'text-black'}`}>Comments</h3>
+                                        <CommentsList />
                                     </div>
                                 </Dialog.Panel>
                             </Transition.Child>
