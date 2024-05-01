@@ -25,7 +25,7 @@ const CommentsList = () => {
     // console.log("Comments State", state);
     const { Comments, isLoading, isError, ErrorMessage } = state;
     // console.log(Comments);
-    const members = useMembersState()?.Members;
+    const members: any = useMembersState()?.Members;
     // console.log("members", members);
     if (Comments.length == 0 && isLoading) {
         return <div className={`text-blue-400 font-semibold`}>Loading...</div>
@@ -47,14 +47,14 @@ const CommentsList = () => {
             </div> */}
             <b>List of Comments:</b>
             {Comments.map((comment: any) => {
-                const commentOwner = members?.filter(
+                const commentOwner = members.filter(
                     (member: any) => member.id === comment.owner);
 
                 return (
                     <div className='comment my-3 bg-white-200 rounded p-3'
                         key={`${comment.owner}-${comment.createdAt}`} >
                         <fieldset className="rounded-md border-2 border-black-800 ">
-                            <legend>{`${commentOwner[0]?.name}: ${formatCommentDate(comment.createdAt)}`}</legend>
+                            <legend>{`${commentOwner[0].name}: ${formatCommentDate(comment.createdAt)}`}</legend>
                             <p>{comment.description}</p>
                         </fieldset>
                     </div>

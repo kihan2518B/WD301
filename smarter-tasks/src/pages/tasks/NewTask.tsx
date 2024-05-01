@@ -83,7 +83,6 @@ const NewTask = () => {
                                                 required
                                                 placeholder="Enter title"
                                                 autoFocus
-                                                name="title"
                                                 id="title"
                                                 // Register the title field
                                                 {...register("title", { required: true })}
@@ -94,7 +93,6 @@ const NewTask = () => {
                                                 required
                                                 placeholder="Enter description"
                                                 autoFocus
-                                                name="description"
                                                 id="description"
                                                 // register the description field
                                                 {...register("description", { required: true })}
@@ -105,7 +103,6 @@ const NewTask = () => {
                                                 required
                                                 placeholder="Enter due date"
                                                 autoFocus
-                                                name="dueDate"
                                                 id="dueDate"
                                                 // register due date field
                                                 {...register("dueDate", { required: true })}
