@@ -9,6 +9,7 @@ import { useMembersState } from "../../context/members/context";
 import { ThemeContext } from "../../context/theme";
 
 import CommentsList from "../comment/CommentsList";
+import NewCommentForm from "../comment/NewComment";
 
 import { useProjectsState } from "../../context/projects/context";
 import { TaskDetailsPayload } from "../../context/task/types";
@@ -205,6 +206,7 @@ const TaskDetails = () => {
                                         </form>
                                         <hr className="mt-2" />
                                         <h3 className={`${theme == "dark" ? 'text-gray-300' : 'text-black'}`}>Comments</h3>
+                                        <NewCommentForm />
                                         <CommentsList />
                                     </div>
                                 </Dialog.Panel>

@@ -83,6 +83,7 @@ const NewTask = () => {
                                                 required
                                                 placeholder="Enter title"
                                                 autoFocus
+                                                name="title"
                                                 id="title"
                                                 // Register the title field
                                                 {...register("title", { required: true })}
@@ -93,6 +94,7 @@ const NewTask = () => {
                                                 required
                                                 placeholder="Enter description"
                                                 autoFocus
+                                                name="description"
                                                 id="description"
                                                 // register the description field
                                                 {...register("description", { required: true })}
@@ -103,6 +105,7 @@ const NewTask = () => {
                                                 required
                                                 placeholder="Enter due date"
                                                 autoFocus
+                                                name="dueDate"
                                                 id="dueDate"
                                                 // register due date field
                                                 {...register("dueDate", { required: true })}
@@ -110,7 +113,6 @@ const NewTask = () => {
                                             />
                                             <button
                                                 type="submit"
-                                                // Set an id for the submit button
                                                 id="newTaskSubmitBtn"
                                                 className="inline-flex justify-center rounded-md border border-transparent bg-blue-600 px-4 py-2 mr-2 text-sm font-medium text-white hover:bg-blue-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                                             >
