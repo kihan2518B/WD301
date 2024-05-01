@@ -40,8 +40,8 @@ const CommentsList = () => {
     // const sortedComments = Comments.sort
     // Assuming you have an array of objects named 'comments'
     //Sorting Comments
-    Comments.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-
+    // console.log(new Date(Comments[0].createdAt).getDate())
+    Comments.sort((a, b) => new Date(a.createdAt).getDate() - new Date(b.createdAt).getDate());
 
     return (
         <>
