@@ -50,6 +50,7 @@ export const CreateComment = async (dispatch: CommentsDispatch, projectID: strin
         const data = await response.json()
         console.log("Create Comment DATA: ", data);
         dispatch({ type: CommentListAvailableAction.CREATE_COMMENT_SUCCESS, payload: data })
+        fetchComments(dispatch, projectID, taskID)
     } catch (error) {
         console.log(error);
         dispatch({ type: CommentListAvailableAction.CREATE_COMMENT_FAILURE, payload: "Error while creating comment" })

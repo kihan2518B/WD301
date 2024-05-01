@@ -41,7 +41,11 @@ const CommentsList = () => {
     // Assuming you have an array of objects named 'comments'
     //Sorting Comments
     // console.log(new Date(Comments[0].createdAt).getDate())
-    Comments.sort((a, b) => new Date(a.createdAt).getDate() - new Date(b.createdAt).getDate());
+    const selectedTaskComments = Comments.filter(
+        (task: any) => `${task.task_id}` === taskID);
+
+    console.log("selectedTaskComments:", selectedTaskComments)
+    // Comments.sort((a, b) => new Date(a.createdAt).getDate() - new Date(b.createdAt).getDate());
 
     return (
         <>
