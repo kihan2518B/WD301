@@ -20,7 +20,7 @@ const router = createBrowserRouter([
     },
     {
         path: "/",
-        element: <Signin />
+        element: <Navigate to="/signin" replace />
     },
     {
         path: "/signin",
@@ -56,7 +56,7 @@ const router = createBrowserRouter([
                                     { path: "new", element: <NewTask /> },
                                     {
                                         path: ":taskID",
-                                        children: [{ index: true, element: <TaskDetailsContainer/> }],
+                                        children: [{ index: true, element: <TaskDetailsContainer /> }],
                                     },
                                 ],
                             }

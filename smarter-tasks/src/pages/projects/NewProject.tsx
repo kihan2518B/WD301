@@ -97,9 +97,11 @@ const NewProject = () => {
                                         <div className="mt-2">
                                             <form onSubmit={handleSubmit(onSubmit)}>
                                                 <input
+                                                    id="name"
                                                     type="text"
                                                     placeholder='Enter project name...'
                                                     autoFocus
+                                                    // name='name'
                                                     {...register('name', { required: true })}
                                                     className={`w-full border rounded-md py-2 px-3 my-4 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue ${errors.name ? 'border-red-500' : ''
                                                         }`}

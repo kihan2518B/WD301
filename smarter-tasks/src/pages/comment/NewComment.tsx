@@ -2,7 +2,7 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
 import { useCommentDispatch, useCommentState } from '../../context/comment/context';
 // import { useState } from 'react';
-import { CreateComment } from '../../context/comment/action';
+import { CreateComment } from '../../context/comment/actions';
 import { CommentPayload } from '../../context/comment/types';
 
 const NewCommentForm = () => {
