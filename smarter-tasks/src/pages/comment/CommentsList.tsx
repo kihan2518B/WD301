@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 
-import { useCommentDispatch, useCommentState } from "../../context/comments/context"
-import { fetchComments } from "../../context/comments/action";
+import { useCommentDispatch, useCommentState } from "../../context/comment/context"
+import { fetchComments } from "../../context/comment/action";
 import { useMembersState } from "../../context/members/context";
 
 const formatCommentDate = (commentDate: string) => {
