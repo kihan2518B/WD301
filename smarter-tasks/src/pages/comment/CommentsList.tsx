@@ -37,6 +37,11 @@ const CommentsList = () => {
         return <div className={`text-blue-400 font-semibold`}>Add First Comment</div>
     }
 
+    // const sortedComments = Comments.sort
+    // Assuming you have an array of objects named 'comments'
+    //Sorting Comments
+    Comments.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+
 
     return (
         <>
