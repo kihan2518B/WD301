@@ -1,17 +1,20 @@
 import { createBrowserRouter, Navigate } from "react-router-dom";
+import React from "react";
 
-import Signin from "../pages/signin"
-import Signup from "../pages/signup"
 import AccountLayout from "../layouts/account";
 import ProtectedRoute from "./ProtectedRoutes";
-import Projects from "../pages/projects/index.tsx";
-import Members from "../pages/members/index.tsx";
-import Logout from "../pages/logout";
-import Notfound from "../pages/Notfound.tsx";
-import NewTask from "../pages/tasks/NewTask.tsx";
-import ProjectContainer from "../pages/projects/ProjectContainer.tsx";
-import ProjectDetails from "../pages/project_details";
-import TaskDetailsContainer from "../pages/tasks/TaskDetailsContainer";
+import Notfound from "../pages/Notfound";
+
+const Signin = React.lazy(() => import("../pages/signin"))
+const Signup = React.lazy(() => import("../pages/signup"));
+const Projects = React.lazy(() => import("../pages/projects"));
+const Members = React.lazy(() => import("../pages/members"));
+const Logout = React.lazy(() => import("../pages/logout"));
+const ProjectDetails = React.lazy(() => import("../pages/project_details"));
+const NewTask = React.lazy(() => import("../pages/tasks/NewTask"));
+const TaskDetailsContainer = React.lazy(
+    () => import("../pages/tasks/TaskDetailsContainer")
+);
 
 const router = createBrowserRouter([
     {
@@ -37,11 +40,12 @@ const router = createBrowserRouter([
                 <AccountLayout />
             </ ProtectedRoute>
         ),
+        ErrorBoundary: () => <>Failed to load the page</>,
         children: [
             { index: true, element: <Navigate to="/account/projects" replace /> },
             {
                 path: "projects",
-                element: <ProjectContainer />,
+                element: <ProjectDetails />,
                 children: [
                     { index: true, element: <Projects /> },
                     {
