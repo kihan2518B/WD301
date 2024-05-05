@@ -2,7 +2,7 @@ import { createBrowserRouter, Navigate } from "react-router-dom";
 import React from "react";
 
 import AccountLayout from "../layouts/account";
-import ProtectedRoute from "./ProtectedRoutes";
+import ProtectedRoute from "./ProtectedRoute";
 import Notfound from "../pages/Notfound";
 
 const Signin = React.lazy(() => import("../pages/signin"))
