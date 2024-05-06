@@ -10,7 +10,7 @@ const Signup = React.lazy(() => import("../pages/signup"));
 const Projects = React.lazy(() => import("../pages/projects"));
 const Members = React.lazy(() => import("../pages/members"));
 const Logout = React.lazy(() => import("../pages/logout"));
-const ProjectDetails = React.lazy(() => import("../pages/project_details"));
+const ProjectDetailsIndex = React.lazy(() => import("../pages/project_details"));
 const NewTask = React.lazy(() => import("../pages/tasks/NewTask"));
 const TaskDetailsContainer = React.lazy(
     () => import("../pages/tasks/TaskDetailsContainer")
@@ -45,12 +45,12 @@ const router = createBrowserRouter([
             { index: true, element: <Navigate to="/account/projects" replace /> },
             {
                 path: "projects",
-                element: <ProjectDetails />,
+                element: <Projects />,
                 children: [
                     { index: true, element: <Projects /> },
                     {
                         path: ":projectID",
-                        element: <ProjectDetails />,
+                        element: <ProjectDetailsIndex />,
                         children: [
                             { index: true, element: <></> },
                             {

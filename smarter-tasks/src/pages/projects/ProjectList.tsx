@@ -1,10 +1,15 @@
-// import { useEffect } from 'react';
-// import { fetchProjects } from "../../context/projects/actions";
-// import { useProjectsDispatch } from "../../context/projects/context";
+import { useEffect } from 'react';
+import { fetchProjects } from "../../context/projects/actions";
+import { useProjectsDispatch } from "../../context/projects/context";
+
 import ProjectListItems from './ProjectListItems';
 
-
 const ProjectList = () => {
+
+    const projectDispatch = useProjectsDispatch()
+    useEffect(() => {
+        fetchProjects(projectDispatch)
+    }, [projectDispatch])
 
     return (
         <div className='grid gap-4 grid-cols-4 mt-5'>
