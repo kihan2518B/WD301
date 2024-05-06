@@ -1,13 +1,11 @@
-import { useEffect } from "react";
-
 // First, I'll import the useProjectsState custom hook to access projects state.
-import { useProjectsState, useProjectsDispatch } from "../../context/projects/context";
+import { useProjectsState } from "../../context/projects/context";
 import { Link } from "react-router-dom";
 export default function ProjectListItems() {
 
     // I'll define a new constant called `state`, to call the useProjectsState() hook, 
     // and get access to projects state.
-    
+
     const state: any = useProjectsState();
     console.log(state);
 
