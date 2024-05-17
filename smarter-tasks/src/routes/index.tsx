@@ -15,6 +15,7 @@ const NewTask = React.lazy(() => import("../pages/tasks/NewTask"));
 const TaskDetailsContainer = React.lazy(
     () => import("../pages/tasks/TaskDetailsContainer")
 );
+import ProjectContainer from "../pages/projects/ProjectContainer";
 
 const router = createBrowserRouter([
     {
@@ -45,7 +46,7 @@ const router = createBrowserRouter([
             { index: true, element: <Navigate to="/account/projects" replace /> },
             {
                 path: "projects",
-                element: <Projects />,
+                element: <ProjectContainer />,
                 children: [
                     { index: true, element: <Projects /> },
                     {
